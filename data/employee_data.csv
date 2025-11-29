@@ -1,0 +1,16 @@
+EmpID,Name,Email,Phone,Department,Role,Manager,JoiningDate,CasualLeave,SickLeave,EarnedLeave
+E001,Rajesh Kumar,rajesh.kumar@company.com,+91-9876543210,Engineering,Senior Software Engineer,Priya Sharma,2020-03-15,8,10,15
+E002,Priya Sharma,priya.sharma@company.com,+91-9876543211,Engineering,Engineering Manager,Amit Patel,2018-01-10,5,12,20
+E003,Amit Patel,amit.patel@company.com,+91-9876543212,Engineering,VP Engineering,CEO,2015-06-01,3,8,25
+E004,Sneha Reddy,sneha.reddy@company.com,+91-9876543213,HR,HR Manager,Vikram Singh,2019-07-20,10,10,18
+E005,Vikram Singh,vikram.singh@company.com,+91-9876543214,HR,VP Human Resources,CEO,2017-03-12,6,9,22
+E006,Ananya Iyer,ananya.iyer@company.com,+91-9876543215,Marketing,Marketing Specialist,Karan Mehta,2021-09-05,12,12,10
+E007,Karan Mehta,karan.mehta@company.com,+91-9876543216,Marketing,Marketing Manager,CEO,2019-02-18,7,11,19
+E008,Rohan Desai,rohan.desai@company.com,+91-9876543217,Engineering,Software Engineer,Priya Sharma,2022-01-10,15,12,8
+E009,Meera Nair,meera.nair@company.com,+91-9876543218,Finance,Financial Analyst,Suresh Gupta,2020-11-22,9,10,14
+E010,Suresh Gupta,suresh.gupta@company.com,+91-9876543219,Finance,Finance Manager,CEO,2016-08-30,4,8,23
+E011,Kavya Menon,kavya.menon@company.com,+91-9876543220,HR,HR Specialist,Sneha Reddy,2021-05-14,11,12,12
+E012,Arjun Kapoor,arjun.kapoor@company.com,+91-9876543221,Engineering,DevOps Engineer,Priya Sharma,2021-03-25,10,11,13
+E013,Divya Pillai,divya.pillai@company.com,+91-9876543222,Marketing,Content Writer,Karan Mehta,2022-06-01,14,12,6
+E014,Nikhil Joshi,nikhil.joshi@company.com,+91-9876543223,Engineering,QA Engineer,Priya Sharma,2020-09-15,8,9,16
+E015,Pooja Agarwal,pooja.agarwal@company.com,+91-9876543224,Finance,Accountant,Suresh Gupta,2021-12-01,13,12,9
