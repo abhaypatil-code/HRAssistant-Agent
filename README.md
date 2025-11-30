@@ -29,14 +29,6 @@ copy .env.example .env  # On Linux/Mac: cp .env.example .env
 streamlit run app.py
 ```
 
-### ☁️ Deploy to Streamlit Cloud
-
-1. Fork this repository to your GitHub.
-2. Go to [Streamlit Community Cloud](https://share.streamlit.io/).
-3. Click "New app" and select your repository.
-4. **CRITICAL**: In "Advanced settings", add your `GOOGLE_API_KEY` to the Secrets.
-5. Click "Deploy!".
-
 **Get your free Gemini API key:** [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 
 ---
@@ -426,4 +418,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Production Ready** | **Fully Documented** | **Easy to Deploy**
 
-Last Updated: November 2024
+Last Updated: November 2025
