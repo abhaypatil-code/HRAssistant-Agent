@@ -76,13 +76,12 @@ def check_dependencies():
 def check_env_file():
     """Check if .env file exists and has API key"""
     env_path = Path('.env')
-    env_example_path = Path('.env.example')
     
     if not env_path.exists():
         print_status(
             ".env File",
             False,
-            "File not found. Copy .env.example to .env and add your API key"
+            "File not found. Required for local development (copy .env.example)"
         )
         return False
     

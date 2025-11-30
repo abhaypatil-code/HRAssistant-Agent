@@ -214,19 +214,6 @@ Employee Lookup    Policy RAG
 - Email notifications
 - Analytics dashboard
 - Mobile app
-
-## 📞 Support
-
-### Documentation
-- README.md - Full documentation
-- QUICKSTART.md - Quick start guide
-- walkthrough.md - Implementation details
-
-### External Resources
-- [Google AI Studio](https://aistudio.google.com/app/apikey) - Get API key
-- [Streamlit Docs](https://docs.streamlit.io/) - Streamlit help
-- [LangChain Docs](https://python.langchain.com/) - LangChain help
-
 ## 🎓 What You've Got
 
 ### A Complete AI Application

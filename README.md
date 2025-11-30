@@ -2,7 +2,7 @@
 
 An intelligent, production-ready HR assistant that combines **Retrieval Augmented Generation (RAG)** over HR policy documents with **structured employee data lookup** to answer both policy-related and employee-specific questions through a conversational Streamlit interface.
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/) [![AI](https://img.shields.io/badge/AI-Google%20Gemini-4285F4)](https://ai.google.dev/) [![Framework](https://img.shields.io/badge/Framework-LangChain-green)](https://python.langchain.com/) [![UI](https://img.shields.io/badge/UI-Streamlit-FF4B4B)](https://streamlit.io/) [![Vector DB](https://img.shields.io/badge/VectorDB-FAISS-orange)](https://faiss.ai/) [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/) [![AI](https://img.shields.io/badge/AI-Google%20Gemini-4285F4)](https://ai.google.dev/) [![Framework](https://img.shields.io/badge/Framework-LangChain-green)](https://python.langchain.com/) [![UI](https://img.shields.io/badge/UI-Streamlit-FF4B4B)](https://streamlit.io/) [![Vector DB](https://img.shields.io/badge/VectorDB-FAISS-orange)](https://faiss.ai/) [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
 
 ---
 
@@ -28,6 +28,14 @@ copy .env.example .env  # On Linux/Mac: cp .env.example .env
 # Run the application
 streamlit run app.py
 ```
+
+### ☁️ Deploy to Streamlit Cloud
+
+1. Fork this repository to your GitHub.
+2. Go to [Streamlit Community Cloud](https://share.streamlit.io/).
+3. Click "New app" and select your repository.
+4. **CRITICAL**: In "Advanced settings", add your `GOOGLE_API_KEY` to the Secrets.
+5. Click "Deploy!".
 
 **Get your free Gemini API key:** [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 
