@@ -19,33 +19,44 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better UI
+# Custom CSS for better UI - Dark Theme
 st.markdown("""
     <style>
+    /* Dark theme colors */
     .main-header {
         font-size: 2.5rem;
         font-weight: bold;
-        color: #1f77b4;
+        color: #4da6ff;
         text-align: center;
         margin-bottom: 1rem;
     }
     .sub-header {
         font-size: 1.2rem;
-        color: #666;
+        color: #b0b0b0;
         text-align: center;
         margin-bottom: 2rem;
     }
     .stChatMessage {
-        background-color: #f0f2f6;
+        background-color: #2b2b2b;
         border-radius: 10px;
         padding: 1rem;
         margin-bottom: 1rem;
+        color: #e0e0e0;
     }
     .sidebar-info {
-        background-color: #e8f4f8;
+        background-color: #1e3a4f;
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 1rem;
+        color: #e0e0e0;
+    }
+    /* Ensure all text in chat messages is visible */
+    .stChatMessage p, .stChatMessage div, .stChatMessage span {
+        color: #e0e0e0 !important;
+    }
+    /* Style for user and assistant messages */
+    [data-testid="stChatMessageContent"] {
+        color: #e0e0e0 !important;
     }
     </style>
 """, unsafe_allow_html=True)
