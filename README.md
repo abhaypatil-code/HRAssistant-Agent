@@ -1,8 +1,37 @@
 # HR Copilot AI Agent 👔
 
-An intelligent HR assistant that combines Retrieval Augmented Generation (RAG) over HR policy documents with structured employee data lookup to answer both policy-related and employee-specific questions through a conversational Streamlit interface.
+An intelligent, production-ready HR assistant that combines **Retrieval Augmented Generation (RAG)** over HR policy documents with **structured employee data lookup** to answer both policy-related and employee-specific questions through a conversational Streamlit interface.
 
-![HR Copilot](https://img.shields.io/badge/AI-Gemini-blue) ![Framework](https://img.shields.io/badge/Framework-LangChain-green) ![UI](https://img.shields.io/badge/UI-Streamlit-red) ![Vector DB](https://img.shields.io/badge/VectorDB-FAISS-orange)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/) [![AI](https://img.shields.io/badge/AI-Google%20Gemini-4285F4)](https://ai.google.dev/) [![Framework](https://img.shields.io/badge/Framework-LangChain-green)](https://python.langchain.com/) [![UI](https://img.shields.io/badge/UI-Streamlit-FF4B4B)](https://streamlit.io/) [![Vector DB](https://img.shields.io/badge/VectorDB-FAISS-orange)](https://faiss.ai/) [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR-USERNAME/HRAssistant-Agent.git
+cd HRAssistant-Agent
+
+# Set up environment (Windows)
+setup.bat
+
+# Or manually:
+python -m venv venv
+venv\Scripts\activate  # On Linux/Mac: source venv/bin/activate
+pip install -r requirements.txt
+
+# Configure API key
+copy .env.example .env  # On Linux/Mac: cp .env.example .env
+# Edit .env and add your Google Gemini API key
+
+# Run the application
+streamlit run app.py
+```
+
+**Get your free Gemini API key:** [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+
+---
 
 ## 📋 Overview
 
@@ -83,21 +112,6 @@ hr_copilot/
     └── utils.py               # Helper functions
 ```
 
-## 🚀 Setup & Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- Google Gemini API key (free tier available)
-
-### Step 1: Clone/Navigate to Project
-
-```bash
-cd "d:\Software\Projects\Final Year Project\HealthCare-App\ML_Models\hr_copilot"
-```
-
-### Step 2: Create Virtual Environment (Recommended)
-
-```bash
 # Windows
 python -m venv venv
 venv\Scripts\activate
@@ -136,6 +150,9 @@ streamlit run app.py
 ```
 
 The application will open in your default browser at `http://localhost:8501`
+
+> [!TIP]
+> For detailed deployment instructions for production environments, see [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## 📖 Usage Guide
 
@@ -356,24 +373,49 @@ POLICY_KEYWORDS = [...]           # Keywords for policy queries
 
 ## 🤝 Contributing
 
-This is a project for demonstration purposes. For production use, consider:
-- Implementing proper authentication and authorization
-- Using a production database (PostgreSQL, MongoDB)
-- Adding comprehensive error handling and logging
-- Implementing rate limiting and caching
-- Adding extensive testing coverage
-- Setting up monitoring and alerting
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**For production deployment:**
+- See [DEPLOYMENT.md](DEPLOYMENT.md) for deployment guides (Streamlit Cloud, AWS, GCP, Azure, Heroku)
+- Review [docs/architecture.md](docs/architecture.md) for system architecture
+- Implement authentication and authorization for security
+- Use production database (PostgreSQL, MongoDB) instead of CSV
+- Set up monitoring, logging, and alerting
+- Implement rate limiting and caching
+- Add comprehensive testing coverage
+
+## 📚 Documentation
+
+- **[README.md](README.md)** - This file, getting started guide
+- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Complete project overview and repository summary
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines and development setup
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guide for various platforms
+- **[docs/architecture.md](docs/architecture.md)** - Detailed system architecture and design
+- **[QUICKSTART.md](QUICKSTART.md)** - Quick reference guide
+- **[PROJECT_COMPLETE.md](PROJECT_COMPLETE.md)** - Project completion summary
 
 ## 📄 License
 
-This project is for educational and demonstration purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Contact
+## 👥 Support
 
-For questions or support regarding this HR Copilot implementation, please contact your development team.
+- **Issues**: Open an issue on GitHub for bug reports or feature requests
+- **Discussions**: Use GitHub Discussions for questions and community support
+- **Documentation**: Check the documentation files listed above
+
+## 🙏 Acknowledgments
+
+- **Google Gemini** for the powerful LLM capabilities
+- **LangChain** for RAG orchestration framework
+- **Streamlit** for the intuitive web framework
+- **FAISS** for efficient vector similarity search
+- **HuggingFace** for embedding models
 
 ---
 
 **Built with ❤️ using Google Gemini, LangChain, and Streamlit**
+
+**Production Ready** | **Fully Documented** | **Easy to Deploy**
 
 Last Updated: November 2024

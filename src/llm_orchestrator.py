@@ -6,7 +6,7 @@ from typing import Dict, List, Optional
 import google.generativeai as genai
 import config
 from src.employee_lookup import get_employee_lookup
-from src.rag_pipeline import get_rag_pipeline
+
 
 
 class LLMOrchestrator:
@@ -14,12 +14,16 @@ class LLMOrchestrator:
     Orchestrates LLM interactions, query routing, and response generation
     """
     
-    def __init__(self):
+    def __init__(self, rag_pipeline, employee_lookup):
         """
         Initialize LLM orchestrator
+        
+        Args:
+            rag_pipeline: RAGPipeline instance
+            employee_lookup: EmployeeLookup instance
         """
-        self.employee_lookup = get_employee_lookup()
-        self.rag_pipeline = get_rag_pipeline()
+        self.employee_lookup = employee_lookup
+        self.rag_pipeline = rag_pipeline
         self._initialize_llm()
     
     def _initialize_llm(self):
@@ -337,19 +341,3 @@ class LLMOrchestrator:
             "- ❓ Any HR-related questions\n\n"
             "Please select your Employee ID from the sidebar to get personalized assistance!"
         )
-
-
-# Singleton instance
-_orchestrator = None
-
-def get_orchestrator() -> LLMOrchestrator:
-    """
-    Get singleton instance of LLMOrchestrator
-    
-    Returns:
-        LLMOrchestrator instance
-    """
-    global _orchestrator
-    if _orchestrator is None:
-        _orchestrator = LLMOrchestrator()
-    return _orchestrator

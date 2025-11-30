@@ -5,8 +5,8 @@ Main application file with chat interface
 import streamlit as st
 import os
 from src.employee_lookup import get_employee_lookup
-from src.rag_pipeline import get_rag_pipeline
-from src.llm_orchestrator import get_orchestrator
+from src.rag_pipeline import RAGPipeline, get_embeddings_model
+from src.llm_orchestrator import LLMOrchestrator
 from src.utils import init_session_state, add_message, clear_chat_history
 import config
 
@@ -51,6 +51,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+@st.cache_resource
+def get_cached_embeddings():
+    """
+    Get cached embeddings model
+    """
+    return get_embeddings_model()
+
+
 def initialize_app():
     """
     Initialize application components
@@ -60,9 +68,21 @@ def initialize_app():
     # Initialize components (singleton pattern ensures single instance)
     if 'components_initialized' not in st.session_state:
         try:
+            # Get cached embeddings
+            embeddings = get_cached_embeddings()
+            
+            # Create new RAG pipeline for this session
+            st.session_state.rag_pipeline = RAGPipeline(embeddings)
+            
+            # Get employee lookup (can be shared)
             st.session_state.employee_lookup = get_employee_lookup()
-            st.session_state.rag_pipeline = get_rag_pipeline()
-            st.session_state.orchestrator = get_orchestrator()
+            
+            # Create orchestrator with session-specific RAG pipeline
+            st.session_state.orchestrator = LLMOrchestrator(
+                rag_pipeline=st.session_state.rag_pipeline,
+                employee_lookup=st.session_state.employee_lookup
+            )
+            
             st.session_state.components_initialized = True
         except Exception as e:
             st.error(f"Error initializing components: {e}")

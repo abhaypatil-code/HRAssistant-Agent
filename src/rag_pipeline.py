@@ -6,7 +6,7 @@ import os
 from typing import List, Dict, Optional
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
 import config
 
@@ -16,35 +16,20 @@ class RAGPipeline:
     Retrieval Augmented Generation pipeline for HR documents
     """
     
-    def __init__(self):
+    def __init__(self, embeddings):
         """
         Initialize RAG pipeline
+        
+        Args:
+            embeddings: HuggingFaceEmbeddings instance
         """
-        self.embeddings = None
+        self.embeddings = embeddings
         self.vector_store = None
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=config.CHUNK_SIZE,
             chunk_overlap=config.CHUNK_OVERLAP,
             length_function=len,
         )
-        self._initialize_embeddings()
-    
-    def _initialize_embeddings(self):
-        """
-        Initialize Google Generative AI embeddings
-        """
-        try:
-            if not config.GOOGLE_API_KEY:
-                raise ValueError("GOOGLE_API_KEY not found in environment variables")
-            
-            self.embeddings = GoogleGenerativeAIEmbeddings(
-                model="models/embedding-001",
-                google_api_key=config.GOOGLE_API_KEY
-            )
-            print("✓ Embeddings initialized successfully")
-        except Exception as e:
-            print(f"✗ Error initializing embeddings: {e}")
-            raise
     
     def load_text_file(self, file_path: str) -> List[Document]:
         """
@@ -314,17 +299,20 @@ class RAGPipeline:
             return False
 
 
-# Singleton instance
-_rag_pipeline = None
-
-def get_rag_pipeline() -> RAGPipeline:
+def get_embeddings_model():
     """
-    Get singleton instance of RAGPipeline
-    
-    Returns:
-        RAGPipeline instance
+    Initialize and return HuggingFace embeddings model
+    This should be cached by the application
     """
-    global _rag_pipeline
-    if _rag_pipeline is None:
-        _rag_pipeline = RAGPipeline()
-    return _rag_pipeline
+    try:
+        # Using all-MiniLM-L6-v2: lightweight, fast, and effective
+        embeddings = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={'device': 'cpu'},
+            encode_kwargs={'normalize_embeddings': True}
+        )
+        print("✓ Local embeddings initialized successfully")
+        return embeddings
+    except Exception as e:
+        print(f"✗ Error initializing embeddings: {e}")
+        raise
