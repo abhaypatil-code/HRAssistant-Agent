@@ -22,6 +22,7 @@ Note:
     Default values are provided for all other settings.
 """
 import os
+import streamlit as st
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -35,13 +36,17 @@ load_dotenv()
 # Google Gemini API key - REQUIRED
 # Get your API key at: https://aistudio.google.com/app/apikey
 # This is the only required environment variable for the application to run
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+# Priority: Streamlit secrets > Environment variable
+if "GOOGLE_API_KEY" in st.secrets:
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+else:
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Validate that API key is set
 if not GOOGLE_API_KEY:
     raise ValueError(
-        "GOOGLE_API_KEY not found in environment variables. "
-        "Please create a .env file from .env.example and add your API key."
+        "GOOGLE_API_KEY not found. "
+        "Please set it in .streamlit/secrets.toml or as an environment variable."
     )
 
 # ============================================================================
